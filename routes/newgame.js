@@ -7,6 +7,8 @@ router.get('/', (req,res) =>
     res.render('newgame');
 });
 
+//ici, a la base c'était un endpoint router.post , mais je l'ai changer par un .get pour avoir req.params. Avec le .post, req.body est undefined
+
 router.get('/:personnage', async (req,res) =>
 {
     const {rows} = await db.execute(
