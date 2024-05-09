@@ -9,9 +9,10 @@ router.get('/', (req,res) =>
 
 //ici, a la base c'était un endpoint router.post , mais je l'ai changer par un .get pour avoir req.params. Avec le .post, req.body est undefined
 
-router.get('/:personnage', async (req,res) =>
+router.post('/', async (req,res) =>
 {
-    const {rows} = await db.execute(
+    console.log(req.body);
+    /*const {rows} = await db.execute(
         {
             sql: 'SELECT id FROM personnage WHERE metier = ?',
             args: [req.params.personnage]
@@ -22,7 +23,7 @@ router.get('/:personnage', async (req,res) =>
             sql: 'INSERT INTO partie (hero, page) VALUES (:hero, :page)',
             args: {hero: rows[0].id, page: 1}
         }
-    );
+    );*/
     res.redirect('../page/1');
 });
 
